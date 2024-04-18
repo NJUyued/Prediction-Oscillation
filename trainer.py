@@ -64,7 +64,7 @@ class FreeMatchTrainer:
             pretrained=cfg.MODEL.PRETRAINED,
             pretrained_path=cfg.MODEL.PRETRAINED_PATH
         )
-        print(sum(p.numel() for p in self.model.parameters() if p.requires_grad))
+        print('Number of Trainable Params: ', sum(p.numel() for p in self.model.parameters() if p.requires_grad))
         self.model = self.model.to(self.device)
         self.model.train()
         
