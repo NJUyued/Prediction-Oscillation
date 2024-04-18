@@ -40,8 +40,10 @@ class DataMaker:
     
     def __get__train__data(self, train_data, num_labeled, ulb_data=None):
         
-        # imgs, labels = train_data.data, train_data.targets
-        imgs, labels = train_data.data, train_data.labels
+        if self.name == 'stl10':
+            imgs, labels = train_data.data, train_data.labels
+        else:
+            imgs, labels = train_data.data, train_data.targets
         imgs, labels = np.array(imgs), np.array(labels)
 
         classes = np.unique(labels)
@@ -68,9 +70,11 @@ class DataMaker:
         )
     
     def __get_test_data__(self, test_data):
-        
-        # imgs, labels = test_data.data, test_data.targets
-        imgs, labels = test_data.data, test_data.labels
+                 
+        if self.name == 'stl10':
+            imgs, labels = test_data.data, test_data.labels
+        else:
+            imgs, labels = test_data.data, test_data.targets
         imgs, labels = np.array(imgs), np.array(labels)
         
         classes = np.unique(labels)

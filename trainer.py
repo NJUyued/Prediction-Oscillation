@@ -288,7 +288,7 @@ class FreeMatchTrainer:
                     ## New 
                     label_w_expanded = label_bank_w[idx]  
                     label_s_expanded = label_bank_s[idx] 
-                    pseudo_label_g = torch.softmax(logits_ulb_w.detach(), dim=-1)
+                    pseudo_label_g = torch.softmax(logits_ulb_w_hat, dim=-1)
                     pseudo_label_s = torch.softmax(logits_ulb_s_hat, dim=-1)
 
                     # po = torch.abs(pseudo_label_g - label_w_expanded.detach())
