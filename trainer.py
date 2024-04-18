@@ -64,6 +64,7 @@ class FreeMatchTrainer:
             pretrained=cfg.MODEL.PRETRAINED,
             pretrained_path=cfg.MODEL.PRETRAINED_PATH
         )
+        print(sum(p.numel() for p in self.model.parameters() if p.requires_grad))
         self.model = self.model.to(self.device)
         self.model.train()
         
@@ -288,7 +289,7 @@ class FreeMatchTrainer:
                     label_w_expanded = label_bank_w[idx]  
                     label_s_expanded = label_bank_s[idx] 
                     pseudo_label_g = torch.softmax(logits_ulb_w.detach(), dim=-1)
-                    pseudo_label_s = torch.softmax(logits_ulb_s, dim=-1)
+                    pseudo_label_s = torch.softmax(logits_ulb_s_hat, dim=-1)
 
                     # po = torch.abs(pseudo_label_g - label_w_expanded.detach())
                     # po_s = torch.abs(pseudo_label_s - label_s_expanded.detach())
