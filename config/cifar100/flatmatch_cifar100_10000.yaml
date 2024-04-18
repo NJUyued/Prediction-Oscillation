@@ -1,7 +1,7 @@
-RUN_NAME: 'con_cf100_10000_powoabs_1'
+RUN_NAME: 'con_cf100_10000_b_1'
 OUTPUT_DIR: 'model_ckpt'
-CONT_TRAIN: False
-RESUME: '/home/duanyue/Prediction-Oscillation/logs/con_cf100_10000_powoabs_1/model_ckpt/last_checkpoint.pth'
+CONT_TRAIN: True
+RESUME: '/home/duanyue/2023_NeurIPS_FlatMatch/logs/flatmatch_cifar100_10000/model_ckpt/last_checkpoint.pth'
 SEED: -1
 LOG_DIR: 'logs'
 USE_CUDA: True
@@ -54,6 +54,6 @@ TRAINER:
   EMA_VAL: 0.999
   ULB_LOSS_RATIO: 1.0
   ENT_LOSS_RATIO: 0.05
-  POLOSS: True
-  GPU: 0
+  POLOSS: False
+  GPU: 2
 
